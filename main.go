@@ -45,6 +45,10 @@ func main() {
 		stock := Stock{}
 		stock.company = e.ChildText("h1")
 		fmt.Println("Company:", stock.company)
+		stock.price = e.ChildText("fin-streamer[data-field='regularMarketPrice']")
+		fmt.Println("Price:", stock.price)
+		stock.change = e.ChildText("fin-streamer[data-field='regularMarketChangePercent']")
+		fmt.Println("Change:", stock.change)
 
 		stocks = append(stocks, stock)
 	})
